@@ -9,7 +9,8 @@
 <br>
 <br>
 <br>
-<form action ="{% url 'thanks_page' %}" method = "">
+<form action ="{% url 'thanks_page' %}" method = "POST">
+    {% csrf_token %}
     <label> Имя</label>
     <input name = "name">
     <label> Телефон</label>

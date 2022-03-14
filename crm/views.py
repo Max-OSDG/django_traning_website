@@ -8,8 +8,8 @@ def first_page(request):
     return render(request, './index.html', {'object_list': object_list})
 
 def thanks_page (request):
-    name = request.GET ['name']
-    nom = request.GET ['nomer']
+    name = request.POST['name']
+    nom = request.POST['nomer']
 
     el = Order()
     el.order_name = name
