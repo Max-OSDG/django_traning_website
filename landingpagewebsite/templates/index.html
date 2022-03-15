@@ -1,75 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<br>
-<br>
-<br>
+{% load static %}
 
-<style>
-.css_input {
-color: yellow
-background-color:red
-}
-</style>
+{% block content %}
 
+<h1> Данные из индекса </h1>
 
+<img src="{% static 'img\1.jpg' %}" height=" 500">
 
-<form action ="{% url 'thanks_page' %}" method = "POST">
-    {% csrf_token %}
-   <!-- <label> Имя</label>
-    <input name = "name">
-    <label> Телефон</label>
-    <input name = "nomer">-->
-    {{form.as_table}}
-    <button type="submit">Send</button>
-</form>
+{% include 'index_old.html' %}
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<h1>New Pages</h1>
-
-{% if object_list %}
-{{ object_list }}
-
-
-
-{% for obj in object_list %}
-    <h1>Nomer: {{obj.id}} | Data: {{obj.order_data}} | Name: {{obj.order_name}} | Phone: {{obj.order_phone}}</h1>
-
-{% endfor %}
-
-<table border = ' 1'>
-    <tr>
-       <th>Id:</th>
-       <th>   Дата   :</th>
-       <th>   Имя     </th>
-       <th>   Телефон   </th>
-    </tr>
-{% for obj in object_list %}
-    <tr>
-       <th>{{obj.id}}        </th>
-       <th>{{obj.order_data}}</th>
-       <th>{{obj.order_name}}</th>
-       <th>{{obj.order_phone}}</th>
-    </tr>
-{% endfor %}
-</table>
-
-{% else %}
-No data in database
-{% endif %}
-
-
-
-</body>
-</html>
+{% endblock %}
